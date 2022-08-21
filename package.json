@@ -1,0 +1,19 @@
+{
+  "name": "about-kami",
+  "version": "1.0.0",
+  "description": "WebsiteHq",
+  "main": "src/startup.js",
+  "scripts": {
+    "test": "?help"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VlxtIykg/About-Kami.git"
+  },
+  "author": "Kami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VlxtIykg/About-Kami/issues"
+  },
+  "homepage": "https://github.com/VlxtIykg/About-Kami#readme"
+}
