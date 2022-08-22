@@ -1,7 +1,9 @@
 //for html
 var target = document.getElementsByClassName("item");
-target.addEventListener("mouseover", mOver, false);
-target.addEventListener("mouseout", mOut, false);
+target.forEach(eachItem => {
+	eachItem.addEventListener("mouseover", mOver, false);
+	eachItem.addEventListener("mouseout", mOut, false);
+});
 
 function mOver() {
    target.classlist.add("")
