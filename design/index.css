@@ -14,5 +14,12 @@ body {
 }
 
 .item {
+	color: gray;
 	max-width: 33%;
+}
+.item-active {
+	color: gray;
+}
+.item-active::after {
+	border-bottom: .1rem gray;
 }
