@@ -1,0 +1,18 @@
+:root {
+	font-size: 62.5%;
+}
+body {
+	font-size: 1.6rem;
+}
+.widget {
+	max-width: 100%;
+	max-height: 10vh;
+	float: right;
+}
+.widget:nth-of-type(2n) {
+	float: right;
+}
+
+.item {
+	max-width: 33%;
+}
