@@ -1,3 +1,5 @@
+import { useState, useEffect } from "preact/hooks";
+
 interface PrefetchedData {
   amount: number;
   id: number;
@@ -18,7 +20,20 @@ const closeFuelMenu = () => {
 };
 
 export default function Form() {
-  const [responseMessage, setResponseMessage] = useState("");
+  const [prefetchedData, setPrefetchedData] = useState<PrefetchedData>({
+    amount: 0,
+    id: 0,
+  });
+
+  useEffect(() => {
+    fetch("http://localhost:3000/fuel")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        setPrefetchedData(data);
+      });
+  }, []);
 
   async function submit(e: SubmitEvent) {
     e.preventDefault();
@@ -31,9 +46,7 @@ export default function Form() {
       body: JSON.stringify({ amount, id: 1 }),
     });
     const data = await response.json();
-    if (data.message) {
-      setResponseMessage(data.message);
-    }
+    console.log(data);
   }
 
   return (
