@@ -17,16 +17,13 @@ export default function Form() {
 
   useEffect(() => { 
     fetch("http://localhost:3000/bot")
-      .then((res) => {return res.json()})
-      .then((data) => {
-        console.log(data)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
         setPrefetchedData(data);
       });
   }, []);
-
-  console.log(prefetchedData)
-
-  const [responseMessage, setResponseMessage] = useState("");
 
   async function submit(e: SubmitEvent) {
     e.preventDefault();
