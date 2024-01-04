@@ -1,101 +1,16 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import PostRequest from "../components/PostRequestForFuel";
-import Switch from "../components/BotSwitch";
+import Card from "../components/Card.astro";
+import GabagoolInfo from "../components/GabagoolInfo.astro";
 import "../styles/global.sass";
 import "../styles/gabagool.sass";
-import "../styles/switch.sass"
+import "../styles/switch.sass";
+import "../styles/shootingstar.scss"
+import Layout from "../layouts/Layout.astro";
+import Stars from "../components/Stars.astro";
+import Header from "../components/Header.astro";
+import { ViewTransitions } from "astro:transitions";
 export const prerender = false;
-const pageTitle = "Gabagool";
-
-const fuel_amount_res = await fetch("http://localhost:3000/fuel");
-const fuel_amount = await fuel_amount_res.json();
-const bot_res = await fetch("http://localhost:3000/bot");
-const bot = await bot_res.json();
-
 ---
-
-<BaseLayout pageTitle={pageTitle}>
-  <div class="cards">
-    <div class="card">
-      <p>Bot</p>
-      <hr />
-      <!-- <GabagoolAPI client:load messages={[10]}/> -->
-      <p class="emphasis">Status: <span style={{ color: bot.status ? '#317f76' : 'red' }}>{bot.status ? 'Online' : 'Offline'}</span></p>
-      <p>Capacity: 263k</p>
-      <p>MPH: 5, 7</p>
-      <p>Total: 188m</p>
-      <Switch client:load/>
-    </div>
-    <div class="card">
-      <p>Fuel info</p>
-      <hr />
-      <p id="fuel_number">Amount: {fuel_amount.amount}</p>
-      <!-- <GabagoolAPI client:load messages={[10]}/> -->
-      <div>
-        <button class="card__buttons" id="update_fuel"> Update fuel</button>
-        <div class="form-popup" id="update_form">
-          <PostRequest client:load />
-          <button
-            type="button"
-            id="close_form"
-            class="btn cancel"
-            onclick="closeForm()">
-            Close
-          </button>
-        </div>
-      </div>
-      <i class="note">It auto reduces fuel daily.</i>
-    </div>
-  </div>
-</BaseLayout>
-
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const fuelToggle = document.getElementById("update_fuel");
-    const formToggle = document.getElementById("close_form");
-    const checkboxToggle = document.getElementById("checkbox");
-
-    const openFuelMenu = () => {
-      console.log("clicked");
-      const updateMenu = document.getElementById("update_form");
-      if (updateMenu && formToggle) {
-        fuelToggle.style.display = "none";
-        updateMenu.style.display = "block";
-        formToggle.style.display = "block";
-      }
-    };
-    
-    const closeFuelMenu = () => {
-      const updateMenu = document.getElementById("update_form");
-      if (updateMenu && formToggle) {
-        fuelToggle.style.display = "block";
-        updateMenu.style.display = "none";
-        formToggle.style.display = "none";
-      }
-    };
-
-    const test = () => {
-      console.log("test");
-    }
-
-    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
-
-    const handleToggleClick = () => {
-      const element = document.getElementById("fuel_number");
-      // const amount =
-      console.log(element?.innerText);
-      console.log(element?.innerHTML);
-    };
-
-    fuelToggle?.addEventListener("click", openFuelMenu);
-    formToggle?.addEventListener("click", closeFuelMenu);
-    // checkboxToggle?.addEventListener("click", test);
-  });
-</script>
-
-<style>
-  #update_form {
-    display: none;
-  }
-</style>
+<ViewTransitions />
+<Header />
+<GabagoolInfo />

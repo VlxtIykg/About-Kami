@@ -1,0 +1,116 @@
+---
+import PostRequest from "../components/PostRequestForFuel";
+import Switch from "../components/BotSwitch";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.sass";
+import "../styles/gabagool.sass";
+import "../styles/switch.sass";
+import BaseLayout from "../layouts/BaseLayout.astro";
+export const prerender = false;
+const pageTitle = "Gabagool";
+
+const fuel_amount_res = await fetch("http://localhost:3000/fuel");
+const fuel_amount = await fuel_amount_res.json();
+const bot_res = await fetch("http://localhost:3000/bot");
+const bot = await bot_res.json();
+---
+
+<meta http-equiv="refresh" content="36000000" />
+
+<Layout title="Gabagool">
+
+<!-- <BaseLayout> -->
+	<div class="cards" >
+		<div class="card">
+			<h3 class="text-gradient">Bot</h3>
+			<hr />
+			<Switch client:load />
+		</div>
+		<div class="card">
+			<h3 class="text-gradient">Fuel info</h3>
+			<hr />
+			<PostRequest client:load />
+			<i class="note">It auto reduces fuel daily.</i>
+		</div>
+	</div>
+<!-- </BaseLayout> -->
+
+</Layout>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+
+    const ws = new WebSocket("ws://localhost:777");
+    ws.addEventListener("open", () => {
+      console.log("connected");
+
+      ws.send("Connection established.");
+    });
+
+    ws.addEventListener("message", event => {
+      console.log(event.data);
+    });
+
+    const fuelToggle = document.getElementById("update_fuel");
+    const formToggle = document.getElementById("close_form");
+
+    const openFuelMenu = () => {
+      console.log("clicked");
+      const updateMenu = document.getElementById("update_form");
+      if (updateMenu && formToggle) {
+        fuelToggle.style.display = "none";
+        updateMenu.style.display = "block";
+        formToggle.style.display = "block";
+      }
+    };
+
+    const closeFuelMenu = () => {
+      const updateMenu = document.getElementById("update_form");
+      if (updateMenu && formToggle) {
+        fuelToggle.style.display = "block";
+        updateMenu.style.display = "none";
+        formToggle.style.display = "none";
+      }
+    };
+
+
+    fuelToggle?.addEventListener("click", openFuelMenu);
+    formToggle?.addEventListener("click", closeFuelMenu);
+    // checkboxToggle?.addEventListener("click", test);
+
+    const changeColor = (() => {
+      if (
+        typeof localStorage !== "undefined" &&
+        localStorage.getItem("color")
+      ) {
+        return localStorage.getItem("color");
+      }
+      return "unclicked";
+    })();
+
+    if (changeColor === "unclicked") {
+      document.getElementById("check__button").classList.remove("clicked");
+    } else {
+      document.getElementById("check__button").classList.add("clicked");
+    }
+
+    window.localStorage.setItem("color", changeColor ?? "clicked");
+
+    const handleToggleClick = () => {
+      const element = document.getElementById("check__button");
+      element.classList.toggle("clicked");
+
+      const isClicked = element.classList.contains("clicked");
+      localStorage.setItem("color", isClicked ? "clicked" : "unclicked");
+    };
+
+    const themeToggle = document.getElementById("check__button");
+    themeToggle?.addEventListener("click", handleToggleClick);
+  });
+</script>
+
+<style>
+  #update_form {
+    display: none;
+  }
+</style>
