@@ -5,14 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import "../styles/global.sass";
 import "../styles/gabagool.sass";
 import "../styles/switch.sass";
-import BaseLayout from "../layouts/BaseLayout.astro";
 export const prerender = false;
-const pageTitle = "Gabagool";
-
-const fuel_amount_res = await fetch("http://localhost:3000/fuel");
-const fuel_amount = await fuel_amount_res.json();
-const bot_res = await fetch("http://localhost:3000/bot");
-const bot = await bot_res.json();
 ---
 
 <meta http-equiv="refresh" content="36000000" />
