@@ -11,7 +11,7 @@ const closeFuelMenu = () => {
     const fuelToggle = document.getElementById("update_fuel");
     const formToggle = document.getElementById("close_form");
 
-    if (updateMenu && formToggle) {
+    if (updateMenu && formToggle && fuelToggle !== null) {
       fuelToggle.style.display = "block";
       updateMenu.style.display = "none";
       formToggle.style.display = "none";
@@ -78,7 +78,7 @@ export default function Form() {
             type="button"
             id="close_form"
             class="btn cancel"
-            onclick={closeFuelMenu()}>
+            onClick={closeFuelMenu}>
             Close
           </button>
         </div>

@@ -50,7 +50,7 @@ export const prerender = false;
     const openFuelMenu = () => {
       console.log("clicked");
       const updateMenu = document.getElementById("update_form");
-      if (updateMenu && formToggle) {
+      if (updateMenu && formToggle && fuelToggle !== null) {
         fuelToggle.style.display = "none";
         updateMenu.style.display = "block";
         formToggle.style.display = "block";
@@ -59,7 +59,7 @@ export const prerender = false;
 
     const closeFuelMenu = () => {
       const updateMenu = document.getElementById("update_form");
-      if (updateMenu && formToggle) {
+      if (updateMenu && formToggle && fuelToggle !== null) {
         fuelToggle.style.display = "block";
         updateMenu.style.display = "none";
         formToggle.style.display = "none";
@@ -82,18 +82,18 @@ export const prerender = false;
     })();
 
     if (changeColor === "unclicked") {
-      document.getElementById("check__button").classList.remove("clicked");
+      document.getElementById("check__button")?.classList.remove("clicked");
     } else {
-      document.getElementById("check__button").classList.add("clicked");
+      document.getElementById("check__button")?.classList.add("clicked");
     }
 
     window.localStorage.setItem("color", changeColor ?? "clicked");
 
     const handleToggleClick = () => {
       const element = document.getElementById("check__button");
-      element.classList.toggle("clicked");
+      element?.classList.toggle("clicked");
 
-      const isClicked = element.classList.contains("clicked");
+      const isClicked = element?.classList.contains("clicked");
       localStorage.setItem("color", isClicked ? "clicked" : "unclicked");
     };
 
