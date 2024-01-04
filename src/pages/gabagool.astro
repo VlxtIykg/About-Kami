@@ -7,21 +7,7 @@ import "../styles/shootingstar.scss"
 import Header from "../components/Header.astro";
 import { ViewTransitions } from "astro:transitions";
 export const prerender = false;
-const title = "Gabagool switch";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<Fragment set:html={title}>
-	</head>
-	<body>
-		<ViewTransitions />
-		<Header />
-		<GabagoolInfo />
-	</body>
-</html>
+<ViewTransitions />
+<Header />
+<GabagoolInfo />
