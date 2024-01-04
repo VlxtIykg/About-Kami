@@ -45,10 +45,26 @@ export default function Form() {
   }
 
   return (
-    <form onSubmit={submit} id="checkbox" class={prefetchedData.status ? "on" : "off"}>
-      <label for="check"> Click to turn {prefetchedData.status ? "on" : "off"}
+    <>
+      <p class="emphasis">
+        Status:
+        <span style={{ color: prefetchedData.status ? "#317f76" : "red" }}>
+          {prefetchedData.status ? "  Online" : "  Offline"}
+        </span>
+      </p>
+      <p>Capacity: {prefetchedData.capacity}</p>
+      <p>MPH: {prefetchedData.coins_per_hour}</p>
+      <p>Total: {prefetchedData.total_made}</p>
+      <form
+        onSubmit={submit}
+        id="checkbox"
+        class={prefetchedData.status ? "on" : "off"}>
+        <label htmlFor="check" id="check__label">
+          {" "}
+          Click to turn {prefetchedData.status ? "on" : "off"}
       </label>
-      <button id="check" type="submit"/>
+        <button id="check__button" type="submit" />
     </form>
+    </>
   );
 }
