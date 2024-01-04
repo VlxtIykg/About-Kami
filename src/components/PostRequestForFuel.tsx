@@ -1,4 +1,21 @@
-import { useState } from "preact/hooks";
+interface PrefetchedData {
+  amount: number;
+  id: number;
+}
+
+const closeFuelMenu = () => {
+  useEffect(() => {
+    const updateMenu = document.getElementById("update_form");
+    const fuelToggle = document.getElementById("update_fuel");
+    const formToggle = document.getElementById("close_form");
+
+    if (updateMenu && formToggle) {
+      fuelToggle.style.display = "block";
+      updateMenu.style.display = "none";
+      formToggle.style.display = "none";
+    }
+  })
+};
 
 export default function Form() {
   const [responseMessage, setResponseMessage] = useState("");
