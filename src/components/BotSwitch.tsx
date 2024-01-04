@@ -15,7 +15,7 @@ export default function Form() {
     total_made: 0,
   });
 
-  useEffect(() => { 
+  useEffect(() => {
     fetch("http://localhost:3000/bot")
       .then(res => {
         return res.json();
@@ -62,9 +62,9 @@ export default function Form() {
         <label htmlFor="check" id="check__label">
           {" "}
           Click to turn {prefetchedData.status ? "on" : "off"}
-      </label>
+        </label>
         <button id="check__button" type="submit" />
-    </form>
+      </form>
     </>
   );
 }
