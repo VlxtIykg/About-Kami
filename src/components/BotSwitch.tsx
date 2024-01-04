@@ -1,8 +1,19 @@
 import { useState, useEffect } from "preact/hooks";
 
+interface PrefetchedData {
+  status: boolean;
+  capacity: number;
+  coins_per_hour: number;
+  total_made: number;
+}
 
 export default function Form() {
-  const [prefetchedData, setPrefetchedData] = useState([]);
+  const [prefetchedData, setPrefetchedData] = useState<PrefetchedData>({
+    status: false,
+    capacity: 0,
+    coins_per_hour: 0,
+    total_made: 0,
+  });
 
   useEffect(() => { 
     fetch("http://localhost:3000/bot")
