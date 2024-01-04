@@ -50,19 +50,40 @@ export default function Form() {
   }
 
   return (
-    <form onSubmit={submit}>
-      <label>
-        <input
-          id="amount"
-          type="text"
-          placeholder="Enter fuel amt"
-          required
-          name="amount"
-          pattern="[0-9]+"
-        />
-      </label>
-      <button>Update</button>
-      {responseMessage && <p>{responseMessage}</p>}
-    </form>
+    <>
+      <p id="fuel_number">
+        Amount:  {prefetchedData.amount}
+      </p>
+
+      <div>
+        <button className="card__buttons" id="update_fuel">
+          Update fuel
+        </button>
+        <div className="form-popup" id="update_form">
+          <form onSubmit={submit}>
+            <label>
+              <input
+                id="amount"
+                type="text"
+                placeholder="Enter fuel amt"
+                required
+                name="amount"
+                pattern="[0-9]+"
+              />
+            </label>
+            <button>Update</button>
+          </form>
+
+          <button
+            type="button"
+            id="close_form"
+            class="btn cancel"
+            onclick={closeFuelMenu()}>
+            Close
+          </button>
+        </div>
+      </div>
+    </>
   );
 }
+
