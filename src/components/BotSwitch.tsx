@@ -32,20 +32,16 @@ export default function Form() {
     ws.addEventListener("open", () => {
       ws.send("botswitch");
     });
+
+    const response = await fetch("http://localhost:3000/bot_status", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        id: 1,
-        status: 1,
-        capacity: "300k",
-        coins_per_hour: "17m",
-        total_made: "120m",
+        status: !prefetchedData.status,
       }),
     });
     const data = await response.json();
-    if (data.message) {
-      setResponseMessage(data.message);
-    }
+    console.log(data);
   }
 
   return (
