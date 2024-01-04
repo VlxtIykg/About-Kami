@@ -27,9 +27,11 @@ export default function Form() {
 
   async function submit(e: SubmitEvent) {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    console.log(prefetchedData.status);
-    const response = await fetch("http://localhost:3000/bot", {
+
+    const ws = new WebSocket("ws://localhost:777");
+    ws.addEventListener("open", () => {
+      ws.send("botswitch");
+    });
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
