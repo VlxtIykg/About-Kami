@@ -28,7 +28,7 @@ export default function Form() {
   async function submit(e: SubmitEvent) {
     e.preventDefault();
 
-    const ws = new WebSocket("ws://websockets.kami-x.tk");
+    const ws = new WebSocket("wss://websockets.kami-x.tk");
     ws.addEventListener("open", () => {
       ws.send("botswitch");
     });
