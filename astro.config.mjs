@@ -3,8 +3,8 @@ import preact from "@astrojs/preact";
 import node from "@astrojs/node";
 
 export default defineConfig({
-  site: "http://localhost:4321",
-  integrations: [preact()],
+  site: "https://kami-x.tk",
+  integrations: [preact(), sitemap()],
   output: "hybrid",
   adapter: node({
     mode: "standalone"

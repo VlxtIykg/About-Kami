@@ -11,7 +11,7 @@ const closeFuelMenu = () => {
     const fuelToggle = document.getElementById("update_fuel");
     const formToggle = document.getElementById("close_form");
 
-    if (updateMenu && formToggle) {
+    if (updateMenu && formToggle && fuelToggle !== null) {
       fuelToggle.style.display = "block";
       updateMenu.style.display = "none";
       formToggle.style.display = "none";
@@ -26,7 +26,7 @@ export default function Form() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:3000/fuel")
+    fetch("https://api.kami-x.tk/fuel")
       .then(res => {
         return res.json();
       })
@@ -40,7 +40,7 @@ export default function Form() {
     const formData = new FormData(e.target as HTMLFormElement);
     const amount = formData.get("amount");
     console.log(amount);
-    const response = await fetch("http://localhost:3000/fuel", {
+    const response = await fetch("https://api.kami-x.tk/fuel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount, id: 1 }),
@@ -78,7 +78,7 @@ export default function Form() {
             type="button"
             id="close_form"
             class="btn cancel"
-            onclick={closeFuelMenu()}>
+            onClick={closeFuelMenu}>
             Close
           </button>
         </div>
