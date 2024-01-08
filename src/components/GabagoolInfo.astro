@@ -33,7 +33,7 @@ export const prerender = false;
   document.addEventListener("astro:page-load", () => {
     window.scrollTo({ left: 0, top: 0, behavior: "instant" });
 
-    const ws = new WebSocket("ws://websockets.kami-x.tk");
+    const ws = new WebSocket("wss://websockets.kami-x.tk");
     ws.addEventListener("open", () => {
       console.log("connected");
 
