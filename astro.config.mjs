@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [preact(), sitemap()],
   output: "hybrid",
   adapter: cloudflare({
-    mode: "directory",
+    mode: "advanced",
     imageService: "cloudflare",
   }),
   server: {
