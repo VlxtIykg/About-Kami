@@ -1,3 +1,40 @@
+:root
+	--accent: rgb(136, 58, 234)
+	--accent-lightshaded: rgb(173, 131, 230)
+	--accent-light: rgb(224, 204, 250)
+	--accent-darkshaded: rgba(89, 53, 136, 0.712)
+	--accent-dark: rgb(49, 10, 101)
+	--accent-opposite: #1f0030
+	--accent-gradient: linear-gradient(45deg, var(--accent-dark), var(--accent-darkshaded), var(--accent-light), var(--accent-lightshaded), var(--accent), white)
+	--nyx-gradient: radial-gradient(circle, #9d00cb, #72009e, #07003e )
+	--galaxy-gradient: linear-gradient(-45deg, #3e3774, #2c1d8b, #1b0e79, #040024, #07003e  )
+	--dark-gradient: linear-gradient(45deg, #1d2027, #131212, #0a0909, #000000)
+	--peach-gradient: linear-gradient(45deg, #ff9776, #fc7e57 30%, #ff6537 60%)
+	--white-gradient: linear-gradient(45deg, #fff, #ffffffd0, #c0c0c0 30%, #fae9e9 60%)
+
+.dark
+	color: #fff 
+	background-image: var(--galaxy-gradient)
+	background-size: 400%
+	animation: bg-animation 10s infinite alternate
+
+@keyframes bg-animation
+	0%
+		background-position: left
+	100%
+		background-position: right
+
+.dark
+	.nav-links
+		a
+			color: #d44040
+
+button
+	cursor: pointer
+
+code
+	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace
+
 .cards
 	display: flex
 	flex-wrap: wrap
@@ -9,12 +46,14 @@
 		border-radius: .5em
 		padding: .5em 1em
 		font-size: 1.15em
+		// background-color: #fcf3ff
 		background-color: #13121291
 		height: 100%
 		color: #F9F9F9
 
 .card__buttons
 	border-radius: .5rem
+	
 .emphasis
 	font-weight: bold
 	font-size: 1.25em
@@ -25,3 +64,95 @@
 	font-size: 0.75em
 	color: #1d2027
 	// text-transform: it
+
+main
+	margin: auto
+	padding: 1rem
+	width: 800px
+	max-width: calc(100% - 2rem)
+	color: white
+	font-size: 20px
+	line-height: 1.6
+
+.astro-a
+	position: absolute
+	top: -32px
+	left: 50%
+	transform: translatex(-50%)
+	width: 220px
+	height: auto
+	z-index: -1
+
+h1
+	font-size: 4rem
+	font-weight: 700
+	line-height: 1
+	text-align: center
+	margin-bottom: 1em
+
+// .text-gradient
+// 	background-image: var(--accent-gradient)
+// 	-webkit-background-clip: text
+// 	-webkit-text-fill-color: transparent
+// 	background-size: 400%
+// 	background-position: 0%
+.text-gradient
+	background-image: var(--accent-gradient)
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+	background-size: 1000%
+	background-position: 0%
+	animation: bg-animation 5s infinite alternate
+
+.instructions
+	margin-bottom: 2rem
+	border: 1px solid rgba(var(--accent-light), 25%)
+	background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%))
+	padding: 1.5rem
+	border-radius: 8px
+
+.instructions code
+	font-size: 0.8em
+	font-weight: bold
+	background: rgba(var(--accent-light), 12%)
+	color: rgb(var(--accent-light))
+	border-radius: 4px
+	padding: 0.3em 0.4em
+
+.instructions strong
+	color: rgb(var(--accent-light))
+
+.link-card-grid
+	display: grid
+	grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr))
+	gap: 2rem
+	padding: 0
+
+#checkbox
+	display: flex
+	align-items: center
+	justify-content: center
+	margin: 0.5em 0
+
+#check__label
+	border: 0
+	// padding: 0.3em 1.5em
+	top: -25%
+	font-size: 1rem
+
+#check__button
+	border: 0.3rem ridge #46056d
+	font-size: 1.2rem
+	background-image: var(--nyx-gradient)
+	padding: 0.3em 1.5em
+	margin: 0 0.3em
+	animation: bg-animation 5s infinite alternate
+	background-size: 1000%
+
+.clicked
+	padding: 0.3em 1.5em
+	margin: 0 0.3em
+	font-size: 1.2rem
+	background-image: var(--white-gradient) !important
+	border: 0.3rem ridge var(--accent-dark) !important
+	animation: bg-animation 5s infinite alternate
