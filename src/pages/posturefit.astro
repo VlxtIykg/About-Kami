@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/gabagool.sass";
+import "../styles/global.sass";
+import "../styles/posturefit.sass";
+const pageTitle = "Posture fit";
+---
+
+<BaseLayout pageTitle={pageTitle} />
+<section>
+  <!-- App Description -->
+  <p>
+    Your ultimate fitness companion! PostureFit uses advanced AI to track your
+    exercise form, providing real-time feedback on your posture and displaying
+    precise angles of your movements.
+  </p>
+
+  <!-- Key Features -->
+  <ul>
+    <li>
+      🤖<strong>AI-Powered Form Tracking:</strong> Get instant feedback on your
+      exercise form with state-of-the-art artificial intelligence.
+    </li>
+    <li>
+      📐<strong>Angle Display:</strong> Visualize the angles of your body during
+      exercises to optimize your workout.
+    </li>
+    <li>
+      🔄<strong>Rep Counter:</strong> Effortlessly keep track of your pushups
+      with our accurate rep counter.
+    </li>
+  </ul>
+
+  <!-- How It Works Section -->
+  <h2>How It Works</h2>
+  <ol>
+    <li>
+      Download the PostureFit app from this link <a href="#download-link"
+        >here</a
+      >.
+    </li>
+    <li>Set up your profile and choose your preferred workout.</li>
+    <li>
+      Receive real-time feedback on your form and let the rep counter keep track
+      of your pushups.
+    </li>
+  </ol>
+
+  <!-- CTA (Call-to-Action) -->
+  <p>
+    Ready to elevate your fitness journey? Download PostureFit now and
+    experience the future of intelligent workout tracking.
+  </p>
+  <a class="buttons" href="#download-link">Download Now</a>
+</section>
