@@ -1,14 +1,21 @@
 import { defineConfig } from 'astro/config';
 import preact from "@astrojs/preact";
-
-import node from "@astrojs/node";
+import cloudflare from "@astrojs/cloudflare"
+import sitemap from "@astrojs/sitemap"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://localhost:4321",
-  integrations: [preact()],
+  site: "https://kami-x.tk",
+  integrations: [preact(), sitemap()],
   output: "hybrid",
-  adapter: node({
-    mode: "standalone"
-  })
+  adapter: cloudflare({
+    mode: "advanced",
+    imageService: "cloudflare",
+  }),
+  server: {
+    port: 0,
+  },
+  image: {
+    service: { entrypoint: "astro/assets/services/sharp" },
+  },
 });
