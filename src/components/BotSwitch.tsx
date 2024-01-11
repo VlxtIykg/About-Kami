@@ -17,7 +17,7 @@ export default function Form() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:3001/bot")
+    fetch("http://api.kami-x.tk/bot")
       .then(res => {
         return res.json();
       })
@@ -35,7 +35,7 @@ export default function Form() {
       ws.send("botswitch");
     });
 
-    const response = await fetch("http://localhost:3001/bot_status", {
+    const response = await fetch("http://api.kami-x.tk/bot_status", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
