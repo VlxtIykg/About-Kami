@@ -5,13 +5,11 @@ import Layout from "../layouts/Layout.astro";
 import "../styles/global.sass";
 import "../styles/gabagool.sass";
 import "../styles/switch.sass";
+import { ViewTransitions } from "astro:transitions";
 export const prerender = false;
 ---
-
-<!-- <meta http-equiv="refresh" content="36000000" /> -->
-
+<ViewTransitions />
 <Layout title="Gabagool">
-  <!-- <BaseLayout> -->
   <div class="cards">
     <div class="card">
       <h3 class="text-gradient">Bot</h3>
@@ -25,13 +23,12 @@ export const prerender = false;
       <i class="note">It auto reduces fuel daily.</i>
     </div>
   </div>
-  <!-- </BaseLayout> -->
 </Layout>
 <script>
   document.addEventListener("astro:page-load", () => {
     window.scrollTo({ left: 0, top: 0, behavior: "instant" });
 
-    const ws = new WebSocket("wss://websockets.kami-x.tk");
+    const ws = new WebSocket("ws://localhost:777");
     ws.addEventListener("open", () => {
       console.log("connected");
 
@@ -46,7 +43,6 @@ export const prerender = false;
     const formToggle = document.getElementById("close_form");
 
     const openFuelMenu = () => {
-      console.log("clicked");
       const updateMenu = document.getElementById("update_form");
       if (updateMenu && formToggle && fuelToggle !== null) {
         fuelToggle.style.display = "none";
@@ -66,7 +62,7 @@ export const prerender = false;
 
     fuelToggle?.addEventListener("click", openFuelMenu);
     formToggle?.addEventListener("click", closeFuelMenu);
-    // checkboxToggle?.addEventListener("click", test);
+    closeFuelMenu();
 
     const changeColor = (() => {
       if (
@@ -96,7 +92,14 @@ export const prerender = false;
 
     const themeToggle = document.getElementById("check__button");
     themeToggle?.addEventListener("click", handleToggleClick);
+
+    document.getElementById("#post_request")?.addEventListener("submit", function(e){
+      e.preventDefault();
+      console.log("NYA")
+      closeFuelMenu();
+    });
   });
+  
 </script>
 
 <style>
