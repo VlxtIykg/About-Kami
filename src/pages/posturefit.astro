@@ -5,38 +5,43 @@ import "../styles/global.sass";
 import "../styles/posturefit.sass";
 const pageTitle = "Posture fit";
 ---
+<html>
 
-<BaseLayout pageTitle={pageTitle} />
-<section>
-  <!-- App Description -->
+  <head>
+    <link rel="icon" href="pushup.png" type="image/x-icon" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="pushup-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
+  </head>
+  <BaseLayout pageTitle={pageTitle} />
+  <section>
+    <!-- App Description -->
   <p>
     Your ultimate fitness companion! PostureFit uses advanced AI to track your
     exercise form, providing real-time feedback on your posture and displaying
     precise angles of your movements.
   </p>
-
+  
   <!-- Key Features -->
   <ul>
     <li>
-      🤖<strong>AI-Powered Form Tracking:</strong> Get instant feedback on your
+      <img class="icon-pf" src="robot.ico" alt="{Robot icon}">  <strong>AI-Powered Form Tracking:</strong> Get instant feedback on your
       exercise form with state-of-the-art artificial intelligence.
     </li>
     <li>
-      📐<strong>Angle Display:</strong> Visualize the angles of your body during
+      <img class="icon-pf" src="angle.ico" alt="{Angle icon}">  <strong>Angle Display:</strong> Visualize the angles of your body during
       exercises to optimize your workout.
     </li>
     <li>
-      🔄<strong>Rep Counter:</strong> Effortlessly keep track of your pushups
+      <img class="icon-pf" src="repeat.ico" alt="{Repeat icon}">  <strong>Rep Counter:</strong> Effortlessly keep track of your pushups
       with our accurate rep counter.
     </li>
   </ul>
-
+  
   <!-- How It Works Section -->
   <h2>How It Works</h2>
   <ol>
     <li>
       Download the PostureFit app from this link <a href="#download-link"
-        >here</a
+      >here</a
       >.
     </li>
     <li>Set up your profile and choose your preferred workout.</li>
@@ -45,7 +50,7 @@ const pageTitle = "Posture fit";
       of your pushups.
     </li>
   </ol>
-
+  
   <!-- CTA (Call-to-Action) -->
   <p>
     Ready to elevate your fitness journey? Download PostureFit now and
@@ -53,3 +58,5 @@ const pageTitle = "Posture fit";
   </p>
   <a class="buttons" href="#download-link">Download Now</a>
 </section>
+
+</html>
