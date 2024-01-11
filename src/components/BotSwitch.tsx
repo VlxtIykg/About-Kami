@@ -1,4 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
+import { navigate } from "astro:transitions/client";
 
 interface PrefetchedData {
   status: boolean;
@@ -41,7 +42,10 @@ export default function Form() {
       }),
     });
     const data = await response.json();
-    console.log(data);
+    if (data) {
+      let href = "/gabagool";
+      navigate(href);
+    }
   }
 
   return (
