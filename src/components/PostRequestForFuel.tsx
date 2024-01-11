@@ -6,20 +6,6 @@ interface PrefetchedData {
   id: number;
 }
 
-const closeFuelMenu = () => {
-  useEffect(() => {
-    const updateMenu = document.getElementById("update_form");
-    const fuelToggle = document.getElementById("update_fuel");
-    const formToggle = document.getElementById("close_form");
-
-    if (updateMenu && formToggle && fuelToggle !== null) {
-      fuelToggle.style.display = "block";
-      updateMenu.style.display = "none";
-      formToggle.style.display = "none";
-    }
-  })
-};
-
 export default function Form() {
   const [prefetchedData, setPrefetchedData] = useState<PrefetchedData>({
     amount: 0,
@@ -55,9 +41,7 @@ export default function Form() {
 
   return (
     <>
-      <p id="fuel_number">
-        Amount:  {prefetchedData.amount}
-      </p>
+      <p id="fuel_number">Amount: {prefetchedData.amount}</p>
 
       <div>
         <button className="card__buttons" id="update_fuel">
@@ -78,11 +62,7 @@ export default function Form() {
             <button>Update</button>
           </form>
 
-          <button
-            type="button"
-            id="close_form"
-            class="btn cancel"
-            onClick={closeFuelMenu}>
+          <button type="button" id="close_form" class="btn cancel">
             Close
           </button>
         </div>
@@ -90,4 +70,3 @@ export default function Form() {
     </>
   );
 }
-
