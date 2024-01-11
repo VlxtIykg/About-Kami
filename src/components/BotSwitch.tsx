@@ -1,4 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
+import { navigate } from "astro:transitions/client";
 
 interface PrefetchedData {
   status: boolean;
@@ -26,6 +27,7 @@ export default function Form() {
   }, []);
 
   async function submit(e: SubmitEvent) {
+    const status = !prefetchedData.status;
     e.preventDefault();
 
     const ws = new WebSocket("wss://websockets.kami-x.tk");
@@ -37,11 +39,10 @@ export default function Form() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        status: !prefetchedData.status,
+        status,
       }),
     });
-    const data = await response.json();
-    console.log(data);
+    setPrefetchedData({ ...prefetchedData, status });
   }
 
   return (

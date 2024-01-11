@@ -5,20 +5,6 @@ interface PrefetchedData {
   id: number;
 }
 
-const closeFuelMenu = () => {
-  useEffect(() => {
-    const updateMenu = document.getElementById("update_form");
-    const fuelToggle = document.getElementById("update_fuel");
-    const formToggle = document.getElementById("close_form");
-
-    if (updateMenu && formToggle && fuelToggle !== null) {
-      fuelToggle.style.display = "block";
-      updateMenu.style.display = "none";
-      formToggle.style.display = "none";
-    }
-  })
-};
-
 export default function Form() {
   const [prefetchedData, setPrefetchedData] = useState<PrefetchedData>({
     amount: 0,
@@ -38,22 +24,28 @@ export default function Form() {
   async function submit(e: SubmitEvent) {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
-    const amount = formData.get("amount");
-    console.log(amount);
+    const amount = formData.get("amount") as string;
+    const parsedAmount = parseInt(amount);
     const response = await fetch("https://api.kami-x.tk/fuel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount, id: 1 }),
     });
-    const data = await response.json();
-    console.log(data);
+    setPrefetchedData({ amount: parsedAmount, id: 1 });
+
+    const fuelToggle = document.getElementById("update_fuel");
+    const formToggle = document.getElementById("close_form");
+    const updateMenu = document.getElementById("update_form");
+    if (updateMenu && formToggle && fuelToggle !== null) {
+      fuelToggle.style.display = "block";
+      updateMenu.style.display = "none";
+      formToggle.style.display = "none";
+    }
   }
 
   return (
     <>
-      <p id="fuel_number">
-        Amount:  {prefetchedData.amount}
-      </p>
+      <p id="fuel_number">Amount: {prefetchedData.amount}</p>
 
       <div>
         <button className="card__buttons" id="update_fuel">
@@ -74,11 +66,7 @@ export default function Form() {
             <button>Update</button>
           </form>
 
-          <button
-            type="button"
-            id="close_form"
-            class="btn cancel"
-            onClick={closeFuelMenu}>
+          <button type="button" id="close_form" class="btn cancel">
             Close
           </button>
         </div>
@@ -86,4 +74,3 @@ export default function Form() {
     </>
   );
 }
-

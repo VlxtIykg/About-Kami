@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
-import cloudflare from "@astrojs/cloudflare"
-import sitemap from "@astrojs/sitemap"
+import cloudflare from "@astrojs/cloudflare";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [preact(), sitemap()],
   output: "hybrid",
   adapter: cloudflare({
-    mode: "standalone",
+    mode: "advanced",
     imageService: "cloudflare",
   }),
   server: {
