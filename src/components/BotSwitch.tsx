@@ -42,11 +42,7 @@ export default function Form() {
         status,
       }),
     });
-    const data = await response.json();
-    if (data) {
-      let href = "/gabagool";
-      navigate(href);
-    }
+    setPrefetchedData({ ...prefetchedData, status });
   }
 
   return (

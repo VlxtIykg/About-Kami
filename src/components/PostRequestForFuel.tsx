@@ -1,5 +1,4 @@
 import { useState, useEffect } from "preact/hooks";
-import { navigate } from "astro:transitions/client";
 
 interface PrefetchedData {
   amount: number;
