@@ -30,7 +30,7 @@ export default function Form() {
     const status = !prefetchedData.status;
     e.preventDefault();
 
-    const ws = new WebSocket("wss://websocket.kami-x.tk");
+    const ws = new WebSocket("wss://websockets.kami-x.tk");
     ws.addEventListener("open", () => {
       ws.send("botswitch");
     });
