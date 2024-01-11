@@ -25,17 +25,14 @@ export default function Form() {
   async function submit(e: SubmitEvent) {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
-    const amount = formData.get("amount");
-    console.log(amount);
+    const amount = formData.get("amount") as string;
+    const parsedAmount = parseInt(amount);
     const response = await fetch("http://localhost:3001/fuel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount, id: 1 }),
     });
-    const data = await response.json();
-    if (data) {
-      let href = "/gabagool";
-      navigate(href);
+    setPrefetchedData({ amount: parsedAmount, id: 1 });
     }
   }
 

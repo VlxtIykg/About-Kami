@@ -27,6 +27,7 @@ export default function Form() {
   }, []);
 
   async function submit(e: SubmitEvent) {
+    const status = !prefetchedData.status;
     e.preventDefault();
 
     const ws = new WebSocket("ws://localhost:777");
@@ -38,7 +39,7 @@ export default function Form() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        status: !prefetchedData.status,
+        status,
       }),
     });
     const data = await response.json();
