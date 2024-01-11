@@ -33,6 +33,14 @@ export default function Form() {
       body: JSON.stringify({ amount, id: 1 }),
     });
     setPrefetchedData({ amount: parsedAmount, id: 1 });
+
+    const fuelToggle = document.getElementById("update_fuel");
+    const formToggle = document.getElementById("close_form");
+    const updateMenu = document.getElementById("update_form");
+    if (updateMenu && formToggle && fuelToggle !== null) {
+      fuelToggle.style.display = "block";
+      updateMenu.style.display = "none";
+      formToggle.style.display = "none";
     }
   }
 
