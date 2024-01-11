@@ -12,7 +12,7 @@ export default function Form() {
   });
 
   useEffect(() => {
-    fetch("http://api.kami-x.tk/fuel")
+    fetch("https://api.kami-x.tk/fuel")
       .then(res => {
         return res.json();
       })
@@ -26,7 +26,7 @@ export default function Form() {
     const formData = new FormData(e.target as HTMLFormElement);
     const amount = formData.get("amount") as string;
     const parsedAmount = parseInt(amount);
-    const response = await fetch("http://api.kami-x.tk/fuel", {
+    const response = await fetch("https://api.kami-x.tk/fuel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount, id: 1 }),
