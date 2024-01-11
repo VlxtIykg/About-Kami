@@ -17,7 +17,7 @@ export default function Form() {
   });
 
   useEffect(() => {
-    fetch("https://api.kami-x.tk/bot")
+    fetch("http://localhost:3001/bot")
       .then(res => {
         return res.json();
       })
@@ -29,12 +29,12 @@ export default function Form() {
   async function submit(e: SubmitEvent) {
     e.preventDefault();
 
-    const ws = new WebSocket("wss://websockets.kami-x.tk");
+    const ws = new WebSocket("ws://localhost:777");
     ws.addEventListener("open", () => {
       ws.send("botswitch");
     });
 
-    const response = await fetch("https://api.kami-x.tk/bot_status", {
+    const response = await fetch("http://localhost:3001/bot_status", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

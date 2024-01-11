@@ -27,7 +27,7 @@ export default function Form() {
   });
 
   useEffect(() => {
-    fetch("https://api.kami-x.tk/fuel")
+    fetch("http://localhost:3001/fuel")
       .then(res => {
         return res.json();
       })
@@ -41,7 +41,7 @@ export default function Form() {
     const formData = new FormData(e.target as HTMLFormElement);
     const amount = formData.get("amount");
     console.log(amount);
-    const response = await fetch("https://api.kami-x.tk/fuel", {
+    const response = await fetch("http://localhost:3001/fuel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount, id: 1 }),
