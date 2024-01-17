@@ -1,42 +1,85 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/gabagool.sass";
 import "../styles/global.sass";
 import "../styles/posturefit.sass";
 const pageTitle = "Posture fit";
 ---
-<html>
 
+<html>
   <head>
-    <link rel="icon" href="pushup.png" type="image/x-icon" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="pushup-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
+    <link
+      rel="icon"
+      href="pushup.ico"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      href="pushup-dark.ico"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <BaseLayout pageTitle={pageTitle} />
+  <!-- <BaseLayout pageTitle={pageTitle} /> -->
   <section>
+    <!-- Banner -->
+    <div class="banner">
+      <div class="shaders" style="  "></div>
+      <img src="flex.jpeg" alt="Banner" class="banner__img" />
+      <h3 class="banner__title">
+        POSTURE<span class="banner__title__emphasis">FIT</span>
+      </h3>
+    </div>
     <!-- App Description -->
-  <p>
-    Your ultimate fitness companion! PostureFit uses advanced AI to track your
-    exercise form, providing real-time feedback on your posture and displaying
-    precise angles of your movements.
-  </p>
-  
-  <!-- Key Features -->
-  <ul>
-    <li>
-      <img class="icon-pf" src="robot.ico" alt="{Robot icon}">  <strong>AI-Powered Form Tracking:</strong> Get instant feedback on your
-      exercise form with state-of-the-art artificial intelligence.
-    </li>
-    <li>
-      <img class="icon-pf" src="angle.ico" alt="{Angle icon}">  <strong>Angle Display:</strong> Visualize the angles of your body during
-      exercises to optimize your workout.
-    </li>
-    <li>
-      <img class="icon-pf" src="repeat.ico" alt="{Repeat icon}">  <strong>Rep Counter:</strong> Effortlessly keep track of your pushups
-      with our accurate rep counter.
-    </li>
-  </ul>
-  
-  <!-- How It Works Section -->
+    <ul>
+      <li>
+        <div>
+          <h5>About us</h5>
+          <!-- <img src="flex2.jpeg" alt="Inspiration" /> -->
+        </div>
+      </li>
+
+      <li>
+        <div>
+          <h5>How the app works!</h5>
+          <ol type="1">
+            <li>Download the PostureFit app from the link below!</li><br />
+            <li>Choose your preferred workout.</li><br>
+            <li>
+              Receive real-time feedback on your form from an AI and let the rep
+              counter keep track of your pushups
+            </li><br>
+            <li>
+              Ready to elevate your fitness journey? <a href="#">Download</a> PostureFit
+              now and experience the future of intelligent workout tracking
+            </li><br>
+          </ol>
+        </div>
+
+        <li>
+          <div>
+            <h5>Features</h5>
+            <ol>
+              <li>
+                Your ultimate fitness companion! PostureFit uses advanced AI to
+                track your exercise form providing real-time feedback on your
+                posture and displaying precise angles of your movements.
+              </li>
+              <li>
+                AI-Powered Form Tracking: Get instant feedback on your exercise
+                form with state-of-the-art artificial intelligence
+              </li>
+              <li>
+                Rep Counter: Effortlessly keep track of your pushups with out
+                accurate rep counter.
+              </li>
+            </ol>
+          </div>
+        </li>
+      </li>
+      <!--   
+  How It Works Section
   <h2>How It Works</h2>
   <ol>
     <li>
@@ -51,12 +94,12 @@ const pageTitle = "Posture fit";
     </li>
   </ol>
   
-  <!-- CTA (Call-to-Action) -->
+  CTA (Call-to-Action)
   <p>
     Ready to elevate your fitness journey? Download PostureFit now and
     experience the future of intelligent workout tracking.
   </p>
-  <a class="buttons" href="#download-link">Download Now</a>
-</section>
-
+  <a class="buttons" href="#download-link">Download Now</a> -->
+    </ul>
+  </section>
 </html>
