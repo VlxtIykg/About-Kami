@@ -7,6 +7,7 @@ import "../styles/gabagool.sass";
 import "../styles/switch.sass";
 import { ViewTransitions } from "astro:transitions";
 export const prerender = false;
+console.log("gabagool");
 ---
 <ViewTransitions />
 <Layout title="Gabagool">
@@ -24,9 +25,9 @@ export const prerender = false;
     </div>
   </div>
 </Layout>
+
 <script>
-  document.addEventListener("astro:page-load", () => {
-    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+window.scrollTo({ left: 0, top: 0, behavior: "instant" });
 
     const ws = new WebSocket("ws://localhost:777");
     ws.addEventListener("open", () => {
@@ -92,12 +93,8 @@ export const prerender = false;
 
     const themeToggle = document.getElementById("check__button");
     themeToggle?.addEventListener("click", handleToggleClick);
-
-    document.getElementById("#post_request")?.addEventListener("submit", function(e){
-      e.preventDefault();
-      console.log("NYA")
-      closeFuelMenu();
-    });
+  document.addEventListener("astro:page-load", () => {
+    console.log("page loaded");
   });
   
 </script>

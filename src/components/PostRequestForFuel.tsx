@@ -45,7 +45,9 @@ export default function Form() {
 
   return (
     <>
-      <p id="fuel_number">Amount: {prefetchedData.amount}</p>
+      <p id="fuel_number">
+        Amount: {prefetchedData.amount}
+      </p>
 
       <div>
         <button className="card__buttons" id="update_fuel">
@@ -66,7 +68,10 @@ export default function Form() {
             <button>Update</button>
           </form>
 
-          <button type="button" id="close_form" class="btn cancel">
+          <button
+            type="button"
+            id="close_form"
+            class="btn cancel">
             Close
           </button>
         </div>

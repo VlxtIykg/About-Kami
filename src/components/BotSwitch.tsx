@@ -27,10 +27,11 @@ export default function Form() {
   }, []);
 
   async function submit(e: SubmitEvent) {
-    const status = !prefetchedData.status;
     e.preventDefault();
-
+    
+    const status = !prefetchedData.status;
     const ws = new WebSocket("ws://localhost:777");
+    
     ws.addEventListener("open", () => {
       ws.send("botswitch");
     });
