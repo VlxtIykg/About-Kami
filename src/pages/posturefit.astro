@@ -1,35 +1,59 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/gabagool.sass";
 import "../styles/global.sass";
 import "../styles/posturefit.sass";
 const pageTitle = "Posture fit";
 ---
 
-<BaseLayout pageTitle={pageTitle} />
-<section>
-  <!-- App Description -->
-  <p>
-    Your ultimate fitness companion! PostureFit uses advanced AI to track your
-    exercise form, providing real-time feedback on your posture and displaying
-    precise angles of your movements.
-  </p>
+<html>
+  <head>
+    <link
+      rel="icon"
+      href="pushup.ico"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      href="pushup-dark.ico"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <section>
+    <!-- Banner -->
+    <div class="banner">
+      <div class="shaders" style="  "></div>
+      <img src="flex.jpeg" alt="Banner" class="banner__img" />
+      <h3 class="banner__title">
+        POSTURE<span class="banner__title__emphasis">FIT</span>
+      </h3>
+    </div>
+    <!-- App Description -->
+    <ul>
+      <li>
+        <div>
+          <h5>About us</h5>
+        </div>
+      </li>
 
-  <!-- Key Features -->
-  <ul>
-    <li>
-      🤖<strong>AI-Powered Form Tracking:</strong> Get instant feedback on your
-      exercise form with state-of-the-art artificial intelligence.
-    </li>
-    <li>
-      📐<strong>Angle Display:</strong> Visualize the angles of your body during
-      exercises to optimize your workout.
-    </li>
-    <li>
-      🔄<strong>Rep Counter:</strong> Effortlessly keep track of your pushups
-      with our accurate rep counter.
-    </li>
-  </ul>
+      <li>
+        <div>
+          <h5>How the app works!</h5>
+          <ol type="1">
+            <li>Download the PostureFit app from the link below!</li><br />
+            <li>Choose your preferred workout.</li><br />
+            <li>
+              Receive real-time feedback on your form from an AI and let the rep
+              counter keep track of your pushups
+            </li><br />
+            <li>
+              Ready to elevate your fitness journey? <a href="#">Download</a> PostureFit
+              now and experience the future of intelligent workout tracking
+            </li><br />
+          </ol>
+        </div>
 
         <li>
           <div>
@@ -52,7 +76,6 @@ const pageTitle = "Posture fit";
           </div>
         </li>
       </li>
-
     </ul>
   </section>
 </html>
