@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+	skill: string;
+	intent: string;
+}
+
+const { title, skill, intent } = Astro.props;
+import "../styles/skills.sass"
+---
+
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- <title>{title}</title> -->
+	</head>
+	<body>
+		<div class="poem__container">
+			<div class="poem__card">
+				<h2 class="poem__card__verse" set:html={title} dir="rtl"/>
+				<hr class="poem__card__divider" dir="rtl">
+				<slot />
+			</div>
+		</div>
+	</body>
+</html>
