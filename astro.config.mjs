@@ -13,7 +13,7 @@ export default defineConfig({
     imageService: "cloudflare",
   }),
   server: {
-    port: 0,
+    port: 4321,
   },
   image: {
     service: { entrypoint: "astro/assets/services/sharp" },
