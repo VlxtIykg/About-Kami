@@ -33,7 +33,7 @@ export default function Form() {
       ws.send("botswitch");
     });
 
-    const response = await fetch("https://api.kami-x.tk/bot_status", {
+    const response = await fetch("http://api.kami-x.tk/bot_status", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
