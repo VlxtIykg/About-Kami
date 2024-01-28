@@ -1,14 +1,15 @@
 ---
+import PostRequest from "@components/PostRequestForFuel";
+import Switch from "@components/BotSwitch";
+import Layout from "@layouts/Layout.astro";
+import "@styles/global.sass";
+import "@styles/gabagool.sass";
+import "@styles/switch.sass";
 import { ViewTransitions } from "astro:transitions";
-import Switch from "../components/BotSwitch";
-import PostRequest from "../components/PostRequestForFuel";
-import Layout from "../layouts/Layout.astro";
-import "../styles/gabagool.sass";
-import "../styles/global.sass";
-import "../styles/switch.sass";
 export const prerender = false;
 ---
 
+<ViewTransitions />
 <ViewTransitions />
 <Layout title="Gabagool">
   <div class="cards">
@@ -26,81 +27,71 @@ export const prerender = false;
   </div>
 </Layout>
 <script>
-  document.addEventListener("astro:page-load", () => {
     window.scrollTo({ left: 0, top: 0, behavior: "instant" });
 
     const ws = new WebSocket("wss://websockets.kami-x.tk");
     ws.addEventListener("open", () => {
       console.log("connected");
 
-      ws.send("Connection established.");
-    });
+    ws.send("Connection established.");
+  });
 
-    ws.addEventListener("message", event => {
-      console.log(event.data);
-    });
+  ws.addEventListener("message", event => {
+    console.log(event.data);
+  });
 
-    const fuelToggle = document.getElementById("update_fuel");
-    const formToggle = document.getElementById("close_form");
+  const fuelToggle = document.getElementById("update_fuel");
+  const formToggle = document.getElementById("close_form");
 
-    const openFuelMenu = () => {
-      const updateMenu = document.getElementById("update_form");
-      if (updateMenu && formToggle && fuelToggle !== null) {
-        fuelToggle.style.display = "none";
-        updateMenu.style.display = "block";
-        formToggle.style.display = "block";
-      }
-    };
-
-    const closeFuelMenu = () => {
-      const updateMenu = document.getElementById("update_form");
-      if (updateMenu && formToggle && fuelToggle !== null) {
-        fuelToggle.style.display = "block";
-        updateMenu.style.display = "none";
-        formToggle.style.display = "none";
-      }
-    };
-
-    fuelToggle?.addEventListener("click", openFuelMenu);
-    formToggle?.addEventListener("click", closeFuelMenu);
-    closeFuelMenu();
-
-    const changeColor = (() => {
-      if (
-        typeof localStorage !== "undefined" &&
-        localStorage.getItem("color")
-      ) {
-        return localStorage.getItem("color");
-      }
-      return "unclicked";
-    })();
-
-    if (changeColor === "unclicked") {
-      document.getElementById("check__button")?.classList.remove("clicked");
-    } else {
-      document.getElementById("check__button")?.classList.add("clicked");
+  const openFuelMenu = () => {
+    const updateMenu = document.getElementById("update_form");
+    if (updateMenu && formToggle && fuelToggle !== null) {
+      fuelToggle.style.display = "none";
+      updateMenu.style.display = "block";
+      formToggle.style.display = "block";
     }
+  };
 
-    window.localStorage.setItem("color", changeColor ?? "clicked");
+  const closeFuelMenu = () => {
+    const updateMenu = document.getElementById("update_form");
+    if (updateMenu && formToggle && fuelToggle !== null) {
+      fuelToggle.style.display = "block";
+      updateMenu.style.display = "none";
+      formToggle.style.display = "none";
+    }
+  };
 
-    const handleToggleClick = () => {
-      const element = document.getElementById("check__button");
-      element?.classList.toggle("clicked");
+  fuelToggle?.addEventListener("click", openFuelMenu);
+  formToggle?.addEventListener("click", closeFuelMenu);
+  closeFuelMenu();
 
-      const isClicked = element?.classList.contains("clicked");
-      localStorage.setItem("color", isClicked ? "clicked" : "unclicked");
-    };
+  const changeColor = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("color")) {
+      return localStorage.getItem("color");
+    }
+    return "unclicked";
+  })();
 
-    const themeToggle = document.getElementById("check__button");
-    themeToggle?.addEventListener("click", handleToggleClick);
+  if (changeColor === "unclicked") {
+    document.getElementById("check__button")?.classList.remove("clicked");
+  } else {
+    document.getElementById("check__button")?.classList.add("clicked");
+  }
 
-    document
-      .getElementById("#post_request")
-      ?.addEventListener("submit", function (e) {
-        e.preventDefault();
-        console.log("NYA");
-        closeFuelMenu();
-      });
+  window.localStorage.setItem("color", changeColor ?? "clicked");
+
+  const handleToggleClick = () => {
+    const element = document.getElementById("check__button");
+    element?.classList.toggle("clicked");
+
+    const isClicked = element?.classList.contains("clicked");
+    localStorage.setItem("color", isClicked ? "clicked" : "unclicked");
+  };
+
+  const themeToggle = document.getElementById("check__button");
+  themeToggle?.addEventListener("click", handleToggleClick);
+  document.addEventListener("astro:page-load", () => {
+    console.log("page loaded");
   });
 </script>
 

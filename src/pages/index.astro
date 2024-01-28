@@ -1,9 +1,25 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Greeting from "../scripts/Greeting.jsx";
-import "../styles/global.sass";
+import "@styles/home.sass";
+import "@styles/tree_bg.sass";
 const pageTitle = "Home Page";
 ---
-<BaseLayout pageTitle={pageTitle}>
-  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]}/>
-</BaseLayout>
+
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="hero">
+        Kami's<br />
+        THE ROAD NOT TAKEN
+      </h2>
+      <a data-astro-prefetch href="#poem">Poem</a><a
+        data-astro-prefetch
+        href="/skills">Skills</a
+      >
+    </div>
+    <aside class="south"><div></div></aside>
+  </body>
+</html>

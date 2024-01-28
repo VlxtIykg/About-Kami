@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string;
+  skill: string;
+  intent: string;
+}
+
+const { title, skill, intent } = Astro.props;
+import "@styles/global.sass";
+import "@styles/skills.sass";
+console.log({skill, intent});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- <title>{title}</title> -->
+  </head>
+  <body>
+    <div class="poem__container">
+      <div class="poem__card">
+        <div class="card__title">
+          <div class="temp">
+            <h2 class="card__verse" set:html={title} dir="rtl" />
+            <h2 class="card__title__secret">Click on me to open the book<br>..or<br>...I guess<br>You could scroll<br>?..down</h2>
+          </div>
+          <hr class="card__divider" dir="rtl" />
+        </div>
+        <div class="poem__card__content">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
