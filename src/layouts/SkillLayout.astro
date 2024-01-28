@@ -1,12 +1,14 @@
 ---
 interface Props {
   title: string;
-	skill: string;
-	intent: string;
+  skill: string;
+  intent: string;
 }
 
 const { title, skill, intent } = Astro.props;
-import "../styles/skills.sass"
+import "@styles/global.sass";
+import "@styles/skills.sass";
+console.log({skill, intent});
 ---
 
 
