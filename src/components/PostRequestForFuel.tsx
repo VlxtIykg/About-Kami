@@ -26,7 +26,7 @@ export default function Form() {
     const formData = new FormData(e.target as HTMLFormElement);
     const amount = formData.get("amount") as string;
     const parsedAmount = parseInt(amount);
-    const response = await fetch("http://localhost:3001/fuel", {
+    await fetch("http://localhost:3001/fuel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount, id: 1 }),

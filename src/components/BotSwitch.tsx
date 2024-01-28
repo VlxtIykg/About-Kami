@@ -1,5 +1,4 @@
 import { useState, useEffect } from "preact/hooks";
-import { navigate } from "astro:transitions/client";
 
 interface PrefetchedData {
   status: boolean;
@@ -36,7 +35,7 @@ export default function Form() {
       ws.send("botswitch");
     });
 
-    const response = await fetch("http://localhost:3001/bot_status", {
+    await fetch("http://localhost:3001/bot_status", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
