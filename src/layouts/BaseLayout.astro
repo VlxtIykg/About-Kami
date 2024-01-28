@@ -1,9 +1,11 @@
 ---
-import "../styles/global.sass"
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import "@styles/global.sass";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 const { pageTitle } = Astro.props;
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
