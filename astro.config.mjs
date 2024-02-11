@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://kami-x.tk",
+  site: "https://kami.wtf",
   integrations: [preact(), sitemap()],
   output: "hybrid",
   adapter: cloudflare({
