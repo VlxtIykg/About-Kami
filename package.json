@@ -10,18 +10,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.2",
-    "@astrojs/cloudflare": "^9.0.0",
-    "@astrojs/preact": "^3.0.1",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.4",
-    "astro": "^4.1.1",
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/cloudflare": "^9.2.1",
+    "@astrojs/preact": "^3.5.4",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.4.1",
+    "astro": "^4.16.18",
     "astro-content": "^0.0.0-alpha.13",
-    "preact": "^10.19.3",
+    "preact": "^10.26.8",
     "prettier-plugin-astro": "^0.13.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "sass": "^1.69.5"
+    "sass": "^1.89.1"
   }
 }
