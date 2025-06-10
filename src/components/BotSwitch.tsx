@@ -16,7 +16,7 @@ export default function Form() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:3001/bot")
+    fetch("https://api.kami.wtf/bot")
       .then(res => {
         return res.json();
       })

@@ -12,7 +12,7 @@ export default function Form() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:3001/fuel")
+    fetch("https://api.kami.wtf/fuel")
       .then(res => {
         return res.json();
       })
