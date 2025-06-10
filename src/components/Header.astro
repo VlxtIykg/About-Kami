@@ -6,7 +6,9 @@ import ThemeIcon from "@components/ThemeIcon.astro";
 import "@styles/burger.sass";
 import { ViewTransitions } from "astro:transitions";
 ---
-
+<head>
+    <ViewTransitions />
+</head>
 <nav transition:animate="slide">
   <header>
     <ThemeIcon />
