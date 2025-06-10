@@ -15,7 +15,7 @@
     "@astrojs/preact": "4.1.0",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
-    "astro": "5.9.1",
+    "astro": "5.9.2",
     "astro-content": "^0.0.0-alpha.13",
     "preact": "^10.26.8",
     "prettier-plugin-astro": "^0.14.1",
