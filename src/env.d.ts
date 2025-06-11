@@ -4,32 +4,32 @@
 import type { Path } from "typescript";
 
 interface EntryImage {
-	url: string;
-	alt: string;
+  url: string;
+  alt: string;
 }
 
 interface EntryData {
   title: string;
   pubDate: string;
   author: string;
-	description: string;
-	image: EntryImage;
-	tags: string[];
-};
+  description: string;
+  image: EntryImage;
+  tags: string[];
+}
 
 interface RenderedContent {
-	html: string;
-	metadata?: {
-		imagePaths: Array<string> | Array<Path>;
-		localImagePaths?: Array<Path> | Array<string>;
-		remoteImagePaths?: Array<Path> | Array<string>;
-		headings: {
-			depth: number;
-			slug: string;
-			text: string;
-		}[];
-		frontmatter: EntryData;
-	};
+  html: string;
+  metadata?: {
+    imagePaths: Array<string> | Array<Path>;
+    localImagePaths?: Array<Path> | Array<string>;
+    remoteImagePaths?: Array<Path> | Array<string>;
+    headings: {
+      depth: number;
+      slug: string;
+      text: string;
+    }[];
+    frontmatter: EntryData;
+  };
 }
 
 interface Entry {
