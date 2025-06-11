@@ -8,7 +8,7 @@ export async function GET(context) {
     title: 'Astro Learner | Blog',
     description: 'My journey learning Astro',
     site: context.site,
-    items: posts.map((post) => ({
+    items: posts.map(post => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
