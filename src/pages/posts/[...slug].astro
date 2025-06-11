@@ -1,9 +1,7 @@
 ---
 export const prerender = true;
 import MarkdownPostLayout from "@layouts/MarkdownPostLayout.astro";
-import type {
-  GetStaticPaths,
-} from "astro";
+import type { GetStaticPaths } from "astro";
 import { getCollection, render } from "astro:content";
 
 export const getStaticPaths = (async () => {

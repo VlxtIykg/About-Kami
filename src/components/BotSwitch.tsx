@@ -27,10 +27,10 @@ export default function Form() {
 
   async function submit(e: SubmitEvent) {
     e.preventDefault();
-    
+
     const status = !prefetchedData.status;
     const ws = new WebSocket("ws://localhost:777");
-    
+
     ws.addEventListener("open", () => {
       ws.send("botswitch");
     });
@@ -56,10 +56,7 @@ export default function Form() {
       <p>Capacity: {prefetchedData.capacity}</p>
       <p>MPH: {prefetchedData.coins_per_hour}</p>
       <p>Total: {prefetchedData.total_made}</p>
-      <form
-        onSubmit={submit}
-        id="checkbox"
-        class={prefetchedData.status ? "on" : "off"}>
+      <form onSubmit={submit} id="checkbox" class={prefetchedData.status ? "on" : "off"}>
         <label htmlFor="check" id="check__label">
           {" "}
           Click to turn {prefetchedData.status ? "on" : "off"}

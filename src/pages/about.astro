@@ -20,7 +20,8 @@ const textCase = "uppercase";
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<style define:vars={{skillColor, fontWeight, textCase}}>
+
+<style define:vars={{ skillColor, fontWeight, textCase }}>
   h1 {
     color: purple;
     font-size: 4rem;
@@ -31,35 +32,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-transform: var(--textCase);
   }
 </style>
-<BaseLayout pageTitle={pageTitle}, skillColor={skillColor}, fontWeight={fontWeight}, textCase={textCase}>
-    <h1>My Astro Site</h1>
-    <h1>About Me</h1>
-    <h2>... and my new Astro site!</h2>
-    
-  
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-  
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-    
-    <p>Here are a few facts about me:</p>
-    
-    <ul>
-      <li>My name is {identity.firstName}.</li>
-      <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-      {identity.hobbies.length >= 2 &&
-        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-      }
-    </ul>
+<BaseLayout pageTitle={pageTitle} , skillColor={skillColor} , fontWeight={fontWeight} , textCase={textCase}>
+  <h1>My Astro Site</h1>
+  <h1>About Me</h1>
+  <h2>... and my new Astro site!</h2>
 
-    <p>My skills are:</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-    
-    {happy && <p>I am happy to be learning Astro!</p>}
+  <p>
+    I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I
+    built myself!
+  </p>
 
-    {finished && <p>I finished this tutorial!</p>}
+  <p>
+    This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!
+  </p>
 
-    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+  <p>Here are a few facts about me:</p>
 
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+        </li>
+      )
+    }
+  </ul>
+
+  <p>My skills are:</p>
+  <ul>
+    {skills.map(skill => <li class="skill">{skill}</li>)}
+  </ul>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+
+  {finished && <p>I finished this tutorial!</p>}
+
+  {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 </BaseLayout>

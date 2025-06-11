@@ -9,10 +9,6 @@ const allPosts = await getCollection("posts");
 <BaseLayout pageTitle={pageTitle}>
   <h2>My awesome blog subtitle</h2>
   <ul>
-    {
-      allPosts.map((post: any) => (
-        <BlogPost url={`/posts/${post.id}`} title={post.data.title} />
-      ))
-    }
+    {allPosts.map((post: any) => <BlogPost url={`/posts/${post.id}`} title={post.data.title} />)}
   </ul>
 </BaseLayout>
