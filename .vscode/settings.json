@@ -13,10 +13,11 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "conventionalCommits.scopes": [
-    "frontend"
-  ],
+  "conventionalCommits.scopes": ["frontend"],
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  },
+  "prettier.configPath": "/home/mavin/About-Kami/.prettierrc",
+  "prettier.bracketSameLine": true,
+  "prettier.arrowParens": "avoid"
 }
