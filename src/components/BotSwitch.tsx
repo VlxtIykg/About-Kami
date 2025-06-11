@@ -1,5 +1,4 @@
 import { useState, useEffect } from "preact/hooks";
-import { navigate } from "astro:transitions/client";
 
 interface PrefetchedData {
   status: boolean;
@@ -27,15 +26,16 @@ export default function Form() {
   }, []);
 
   async function submit(e: SubmitEvent) {
-    const status = !prefetchedData.status;
     e.preventDefault();
 
-    const ws = new WebSocket("wss://websockets.kami.wtf");
+    const status = !prefetchedData.status;
+    const ws = new WebSocket("ws://localhost:777");
+
     ws.addEventListener("open", () => {
       ws.send("botswitch");
     });
 
-    const response = await fetch("https://api.kami.wtf/bot_status", {
+    await fetch("http://localhost:3001/bot_status", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -56,10 +56,7 @@ export default function Form() {
       <p>Capacity: {prefetchedData.capacity}</p>
       <p>MPH: {prefetchedData.coins_per_hour}</p>
       <p>Total: {prefetchedData.total_made}</p>
-      <form
-        onSubmit={submit}
-        id="checkbox"
-        class={prefetchedData.status ? "on" : "off"}>
+      <form onSubmit={submit} id="checkbox" class={prefetchedData.status ? "on" : "off"}>
         <label htmlFor="check" id="check__label">
           {" "}
           Click to turn {prefetchedData.status ? "on" : "off"}

@@ -26,7 +26,7 @@ export default function Form() {
     const formData = new FormData(e.target as HTMLFormElement);
     const amount = formData.get("amount") as string;
     const parsedAmount = parseInt(amount);
-    const response = await fetch("https://api.kami.wtf/fuel", {
+    await fetch("http://localhost:3001/fuel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount, id: 1 }),
@@ -54,14 +54,7 @@ export default function Form() {
         <div className="form-popup" id="update_form">
           <form onSubmit={submit}>
             <label>
-              <input
-                id="amount"
-                type="text"
-                placeholder="Enter fuel amt"
-                required
-                name="amount"
-                pattern="[0-9]+"
-              />
+              <input id="amount" type="text" placeholder="Enter fuel amt" required name="amount" pattern="[0-9]+" />
             </label>
             <button>Update</button>
           </form>
