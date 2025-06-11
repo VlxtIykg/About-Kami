@@ -33,13 +33,13 @@ interface RenderedContent {
 }
 
 interface Entry {
-		id: string,
-		data: EntryData,
-		body: string,
-		filePath: Path | String,
-		digest: MD5Hash<string>,
-		renderered: RenderedContent,
-		collection: string,
-		slug: string,
-		render: () => Promise<{ Content: unknown; headings: Array<{ depth: number; slug: string; text: string }>; }>
+  id: string;
+  data: EntryData;
+  body: string;
+  filePath: Path | String;
+  digest: MD5Hash<string>;
+  renderered: RenderedContent;
+  collection: string;
+  slug: string;
+  render: () => Promise<{ Content: unknown; headings: Array<{ depth: number; slug: string; text: string }> }>;
 }
