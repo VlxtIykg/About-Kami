@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import SkillLayout from "@layouts/SkillLayout.astro";
 import "@styles/skills.sass";
 const pageTitle = "The mind";
@@ -14,7 +14,7 @@ const pageTitle = "The mind";
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <!-- <button class="circle-button">Open Circle</button> -->

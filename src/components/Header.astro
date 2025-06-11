@@ -3,11 +3,16 @@ import Hambuger from "@components/Hambuger.astro";
 import Navigation from "@components/Navigation.astro";
 import Stars from "@components/Stars.astro";
 import ThemeIcon from "@components/ThemeIcon.astro";
+import "@styles/global.sass";
+import "@styles/shootingstar.scss";
 import "@styles/burger.sass";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter, slide } from "astro:transitions";
 ---
 
-<nav transition:animate="slide">
+<head>
+    <ClientRouter />
+</head>
+<nav transition:animate={slide({ duration: '0.4s'})}>
   <header>
     <ThemeIcon />
     <Hambuger />

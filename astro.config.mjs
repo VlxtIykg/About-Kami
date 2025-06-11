@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://kami.wtf",
   integrations: [preact(), sitemap()],
-  output: "hybrid",
+  output: "server",
   adapter: cloudflare({
     mode: "advanced",
     imageService: "cloudflare",

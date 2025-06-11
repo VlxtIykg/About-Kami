@@ -26,7 +26,7 @@ export default function Form() {
     const formData = new FormData(e.target as HTMLFormElement);
     const amount = formData.get("amount") as string;
     const parsedAmount = parseInt(amount);
-    const response = await fetch("https://api.kami.wtf/fuel", {
+    await fetch("http://localhost:3001/fuel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount, id: 1 }),
@@ -45,7 +45,9 @@ export default function Form() {
 
   return (
     <>
-      <p id="fuel_number">Amount: {prefetchedData.amount}</p>
+      <p id="fuel_number">
+        Amount: {prefetchedData.amount}
+      </p>
 
       <div>
         <button className="card__buttons" id="update_fuel">
@@ -66,7 +68,10 @@ export default function Form() {
             <button>Update</button>
           </form>
 
-          <button type="button" id="close_form" class="btn cancel">
+          <button
+            type="button"
+            id="close_form"
+            class="btn cancel">
             Close
           </button>
         </div>
