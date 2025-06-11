@@ -1,8 +1,9 @@
 ---
 import "@styles/global.sass";
+import "@styles/gradient-dark.sass";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 const { pageTitle } = Astro.props;
 ---
 
@@ -13,7 +14,7 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <Header />
@@ -25,7 +26,7 @@ const { pageTitle } = Astro.props;
     </script> -->
   </body>
 </html>
-<script transition:persist >
+<script>
   document.addEventListener("astro:page-load", () => {
     console.log("page loaded");
     document?.querySelector(".hamburger")?.addEventListener("click", () => {

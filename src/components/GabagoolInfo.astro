@@ -5,12 +5,12 @@ import Layout from "@layouts/Layout.astro";
 import "@styles/global.sass";
 import "@styles/gabagool.sass";
 import "@styles/switch.sass";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 export const prerender = false;
 console.log("gabagool");
 ---
 
-<ViewTransitions />
+<ClientRouter />
 <Layout title="Gabagool">
   <div class="cards">
     <div class="card">

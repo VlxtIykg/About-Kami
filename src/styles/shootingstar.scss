@@ -1,3 +1,4 @@
+@use 'sass:math';
 $shooting-time: 3000ms;
 
 .night {
@@ -53,9 +54,9 @@ $shooting-time: 3000ms;
 
 	@for $i from 1 through 20 {
 		&:nth-child(#{$i}) {
-			$delay: random(9999) + 0ms;
-			top: calc(-10% - #{random(400) - 300px});
-			left: calc(10% - #{random(300) + 0px});
+			$delay: math.random(9999) + 0ms;
+			top: calc(-10% - #{math.random(400) - 300px});
+			left: calc(10% - #{math.random(300) + 0px});
 			animation-delay: $delay;
 			// opacity: random(50) / 100 + 0.5;
 
