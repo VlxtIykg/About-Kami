@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 $shooting-time: 3000ms;
 
 .night {
@@ -10,8 +10,6 @@ $shooting-time: 3000ms;
 }
 
 .shooting_star {
-		content: '';
-		content: '';
   position: absolute;
   left: -10%;
   top: -10%;
@@ -25,6 +23,7 @@ $shooting-time: 3000ms;
     shooting $shooting-time ease-in-out infinite;
 
   &::before {
+    content: "";
     position: absolute;
     top: calc(-10% - 1px);
     right: 0;
@@ -40,6 +39,7 @@ $shooting-time: 3000ms;
     // CodePen Error
     // @extend .shooting_star::before;
 
+    content: "";
     position: absolute;
     top: calc(-10% - 1px);
     right: 0;
