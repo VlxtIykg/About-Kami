@@ -8,16 +8,32 @@ import spotlightjs from "@spotlightjs/astro";
 
 export default defineConfig({
   site: "https://kami.wtf",
-  integrations: [preact(), sitemap(), sentry(), spotlightjs()],
-  output: "server",
-  adapter: cloudflare({
-    mode: "advanced",
-    imageService: "cloudflare",
+  integrations: [
+    preact({ compat: true }),
+    sitemap(),
+    sentry({
+      autoInstrumentation: {
+        requestHandler: false,
+      },
+      sourceMapsUploadOptions: {
+        enabled: false, // Disable automatic source map uploads
+      },
+    }),
+    spotlightjs(),
+  ],
+  output: "static",
+  adapter: node({
+    mode: "standalone",
   }),
   server: {
     port: 4321,
   },
   image: {
     service: { entrypoint: "astro/assets/services/sharp" },
+  },
+  vite: {
+    ssr: {
+      noExternal: ["open-props"],
+    },
   },
 });
