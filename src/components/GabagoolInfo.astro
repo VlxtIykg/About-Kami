@@ -2,15 +2,12 @@
 import PostRequest from "@components/PostRequestForFuel";
 import Switch from "@components/BotSwitch";
 import Layout from "@layouts/Layout.astro";
-import "@styles/global.sass";
-import "@styles/gabagool.sass";
+import "@styles/page-specific/gabagool.sass";
 import "@styles/switch.sass";
-import { ClientRouter } from "astro:transitions";
 export const prerender = false;
-console.log("gabagool");
 ---
 
-<ClientRouter />
+<!-- <ClientRouter /> -->
 <Layout title="Gabagool">
   <div class="cards">
     <div class="card">
