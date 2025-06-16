@@ -21,42 +21,5 @@ const { pageTitle } = Astro.props;
     <h1 class="center">{pageTitle}</h1>
     <slot />
     <Footer />
-    <!-- <script>
-      import "@scripts/menu.js";
-    </script> -->
   </body>
 </html>
-<script>
-  document.addEventListener("astro:page-load", () => {
-    console.log("page loaded");
-    document?.querySelector(".hamburger")?.addEventListener("click", () => {
-      document?.querySelector(".nav-links")?.classList.toggle("expanded");
-    });
-  });
-</script>
-<style>
-  /* .center {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
-    text-align: center;
-  } */
-  html {
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      "Open Sans",
-      "Helvetica Neue",
-      sans-serif;
-    /* font-size: 16px; */
-    /* line-height: 1.5; */
-    /* color: #333; */
-  }
-</style>

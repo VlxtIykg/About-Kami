@@ -1,5 +1,6 @@
 ---
-
+import "@styles/page-specific/burger.sass";
+import Hamburger from "@components/toggle/Hamburger";
 ---
 
 <div class="hamburger">
@@ -7,3 +8,4 @@
   <span class="line"></span>
   <span class="line"></span>
 </div>
+<Hamburger client:only="preact" client:media="(max-width: 636px)" />
