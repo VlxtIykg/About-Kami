@@ -20,6 +20,7 @@
     "astro": "5.9.2",
     "astro-content": "^0.0.0-alpha.13",
     "open-props": "^1.7.15",
+    "postcss-custom-media": "^11.0.6",
     "preact": "^10.26.8",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.8.3"
