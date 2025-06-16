@@ -1,8 +1,14 @@
 // Requires: global.sass
-.dark
+.light
   color: #fff
   background-image: var(--gradient-1)
   background-size: 1400%
+  animation: bg-animation 10s infinite alternate
+
+.dark
+  color: #fff
+  background-image: var(--galaxy-gradient)
+  background-size: 400%
   animation: bg-animation 10s infinite alternate
 
 @keyframes bg-animation
