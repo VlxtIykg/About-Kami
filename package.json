@@ -17,7 +17,7 @@
     "@astrojs/sitemap": "^3.4.1",
     "astro": "5.18.0",
     "astro-content": "^0.0.0-alpha.13",
-    "preact": "^10.26.8",
+    "preact": "^10.28.4",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.8.3"
   },
